@@ -1,7 +1,8 @@
+import React from "react";
 
 export default function Navbar(props) {
     return (
-        <div className="header">
+        <div className="nav">
             {props.children}
         </div>
     )
