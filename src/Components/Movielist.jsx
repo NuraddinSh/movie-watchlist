@@ -50,32 +50,58 @@ function Movielist() {
     })
     function handleChange(event) {
         setInputValue([event.target.name] = event.target.value)
-    }
+        const regex =/ /
+        if(regex.test(inputValue)){
+            setInputValue(inputValue =>inputValue.replace(/ /g, "+"))
 
+        }
+    }
+        console.log(inputValue)
 
 
 
     return (
-        <div className={"main-content"}>
+        <div className={""}>
             <Navbar>
-                <div className={"nav-fav"}>
-                    <h1>Find your film</h1>
-                    <p className={"nav-link"}><Link to={"/watchlist"}>Movielist</Link></p>
-                </div>
+                    <div className={"navbar container"}>
+                    <div className={"container-fluid"}>
+                        <p className={"navbar-brand my-auto"}>Movies</p>
 
-                <form onSubmit={handleSubmit} className={"searchbar"}>
-                <input className={"input-area"}
-                       type="text"
-                       placeholder={"Search Movies"}
-                       name={inputValue}
-                       onChange={handleChange}
-                />
-                <button className={"search-btn"}>Search</button>
-                </form>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className={"collapse navbar-collapse"} id={"navbarSupportedContent"}>
+                            <ul className={"navbar-nav me-auto mb-2 mb-lg-0"}>
+                                <li className={"nav-item"}>
+                                    <p className={"my-auto"}><Link to={"/watchlist"} className={"nav-link active"}>Liked</Link></p>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Link</a>
+                                </li>
+                            </ul>
+                            <form onSubmit={handleSubmit} className={"d-flex"}>
+                                <input className={"form-control me-2"}
+                                       type="text"
+                                       placeholder={"Search Movies"}
+                                       name={inputValue}
+                                       onChange={handleChange}
+                                />
+                                <button className={"btn btn-outline-success"}>Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+
+
+
+
 
             </Navbar>
 
-            <div className={"movie-list"}>{searchedMovies}</div>
+
+            <div className={"container text-center"}><div className={"row align-items-start"}>{searchedMovies}</div></div>
             <Footer />
         </div>
 

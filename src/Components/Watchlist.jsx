@@ -43,8 +43,8 @@ export default function Watchlist() {
         <div className={"main-content"}>
             <Navbar>
                 <div className={"nav-fav"}>
-                    <h1>WatchList</h1>
-                    <p><Link to={"/"}>Movie Search</Link></p>
+                    <p><Link to={"/"}>Movies</Link></p>
+                    <p>Liked</p>
                 </div>
             </Navbar>
             <div className={"movie-list"}>{favoritedMovies}</div>
